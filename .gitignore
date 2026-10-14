@@ -1,0 +1,63 @@
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments and local secrets
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# IDE and operating-system files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Datasets: retain only directory placeholders
+/data/raw/**
+!/data/raw/.gitkeep
+/data/processed/**
+!/data/processed/.gitkeep
+
+# Generated outputs: retain only directory placeholders
+/outputs/**
+!/outputs/figures/
+!/outputs/metrics/
+!/outputs/models/
+!/outputs/figures/.gitkeep
+!/outputs/metrics/.gitkeep
+!/outputs/models/.gitkeep
+
+# Model checkpoints and serialized artifacts anywhere in the repository
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.hdf5
+*.safetensors
+*.pkl
+*.pickle
+*.joblib
+
+# Local logs
+*.log
