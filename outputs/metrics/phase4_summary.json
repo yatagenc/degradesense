@@ -1,0 +1,362 @@
+{
+  "primary_dataset": "Independent FD001 test, 100 engines, truncated observations",
+  "device": "cuda",
+  "thresholds": {
+    "autoencoder": 0.4706687594636955,
+    "pca": 0.32613088215312686
+  },
+  "consecutive_cycles": 3,
+  "rul_windows": [
+    50,
+    30
+  ],
+  "far_region": "RUL>50",
+  "definitions": {
+    "eligibility": "At least one observed record in the named RUL window; all observed engines for overall coverage.",
+    "persistent_signal": "Score strictly exceeds saved validation p95 for 3 consecutive actual cycles; emitted on third and subsequent qualifying cycles. Gaps reset the run.",
+    "warning_active": "Latched from first persistent emission onward; uses only current and past observations.",
+    "coverage_by_observation_end": "Eligible engines with any observed prior/current persistent warning divided by eligible engines. Includes earlier far-region warnings.",
+    "signal_in_window_fraction": "Eligible engines with a qualifying persistent signal inside the named window divided by eligible engines.",
+    "lead_time": "Retrospective RUL at first persistent emission; distribution conditional on engines warned during observation.",
+    "premature_record_fraction": "Qualifying persistent-signal records with RUL>50 divided by all observed records with RUL>50.",
+    "premature_engine_fraction": "Engines with a qualifying persistent signal at RUL>50 divided by engines with any observed RUL>50 records.",
+    "right_censoring": "A positive final provided RUL means failure is unobserved. Engines not entering a window are ineligible, not detection misses.",
+    "raw_comparison": "Same eligibility and strict thresholds; raw signals require one exceedance, persistent signals require three.",
+    "cusum": "Supporting one-sided standardized-score diagnostic; validation reference mean/std, fixed drift .5 and boundary 5; reset after event or cycle gap."
+  },
+  "model_summary": [
+    {
+      "model": "autoencoder",
+      "test_engines": 100,
+      "observed_records": 13096,
+      "right_censored_engines": 100,
+      "warned_engines": 7,
+      "observed_warning_fraction": 0.07
+    },
+    {
+      "model": "pca",
+      "test_engines": 100,
+      "observed_records": 13096,
+      "right_censored_engines": 100,
+      "warned_engines": 4,
+      "observed_warning_fraction": 0.04
+    }
+  ],
+  "coverage": [
+    {
+      "model": "autoencoder",
+      "rule": "raw",
+      "rul_window": "all_observed",
+      "eligible_engines": 100,
+      "ineligible_engines": 0,
+      "warned_by_observation_end": 97,
+      "coverage_by_observation_end": 0.97,
+      "engines_with_signal_in_window": 97,
+      "signal_in_window_fraction": 0.97
+    },
+    {
+      "model": "autoencoder",
+      "rule": "persistent",
+      "rul_window": "all_observed",
+      "eligible_engines": 100,
+      "ineligible_engines": 0,
+      "warned_by_observation_end": 7,
+      "coverage_by_observation_end": 0.07,
+      "engines_with_signal_in_window": 7,
+      "signal_in_window_fraction": 0.07
+    },
+    {
+      "model": "autoencoder",
+      "rule": "raw",
+      "rul_window": "RUL<=50",
+      "eligible_engines": 33,
+      "ineligible_engines": 67,
+      "warned_by_observation_end": 33,
+      "coverage_by_observation_end": 1.0,
+      "engines_with_signal_in_window": 27,
+      "signal_in_window_fraction": 0.8181818181818182
+    },
+    {
+      "model": "autoencoder",
+      "rule": "persistent",
+      "rul_window": "RUL<=50",
+      "eligible_engines": 33,
+      "ineligible_engines": 67,
+      "warned_by_observation_end": 7,
+      "coverage_by_observation_end": 0.21212121212121213,
+      "engines_with_signal_in_window": 7,
+      "signal_in_window_fraction": 0.21212121212121213
+    },
+    {
+      "model": "autoencoder",
+      "rule": "raw",
+      "rul_window": "RUL<=30",
+      "eligible_engines": 25,
+      "ineligible_engines": 75,
+      "warned_by_observation_end": 25,
+      "coverage_by_observation_end": 1.0,
+      "engines_with_signal_in_window": 19,
+      "signal_in_window_fraction": 0.76
+    },
+    {
+      "model": "autoencoder",
+      "rule": "persistent",
+      "rul_window": "RUL<=30",
+      "eligible_engines": 25,
+      "ineligible_engines": 75,
+      "warned_by_observation_end": 7,
+      "coverage_by_observation_end": 0.28,
+      "engines_with_signal_in_window": 6,
+      "signal_in_window_fraction": 0.24
+    },
+    {
+      "model": "pca",
+      "rule": "raw",
+      "rul_window": "all_observed",
+      "eligible_engines": 100,
+      "ineligible_engines": 0,
+      "warned_by_observation_end": 95,
+      "coverage_by_observation_end": 0.95,
+      "engines_with_signal_in_window": 95,
+      "signal_in_window_fraction": 0.95
+    },
+    {
+      "model": "pca",
+      "rule": "persistent",
+      "rul_window": "all_observed",
+      "eligible_engines": 100,
+      "ineligible_engines": 0,
+      "warned_by_observation_end": 4,
+      "coverage_by_observation_end": 0.04,
+      "engines_with_signal_in_window": 4,
+      "signal_in_window_fraction": 0.04
+    },
+    {
+      "model": "pca",
+      "rule": "raw",
+      "rul_window": "RUL<=50",
+      "eligible_engines": 33,
+      "ineligible_engines": 67,
+      "warned_by_observation_end": 33,
+      "coverage_by_observation_end": 1.0,
+      "engines_with_signal_in_window": 24,
+      "signal_in_window_fraction": 0.7272727272727273
+    },
+    {
+      "model": "pca",
+      "rule": "persistent",
+      "rul_window": "RUL<=50",
+      "eligible_engines": 33,
+      "ineligible_engines": 67,
+      "warned_by_observation_end": 3,
+      "coverage_by_observation_end": 0.09090909090909091,
+      "engines_with_signal_in_window": 3,
+      "signal_in_window_fraction": 0.09090909090909091
+    },
+    {
+      "model": "pca",
+      "rule": "raw",
+      "rul_window": "RUL<=30",
+      "eligible_engines": 25,
+      "ineligible_engines": 75,
+      "warned_by_observation_end": 25,
+      "coverage_by_observation_end": 1.0,
+      "engines_with_signal_in_window": 15,
+      "signal_in_window_fraction": 0.6
+    },
+    {
+      "model": "pca",
+      "rule": "persistent",
+      "rul_window": "RUL<=30",
+      "eligible_engines": 25,
+      "ineligible_engines": 75,
+      "warned_by_observation_end": 3,
+      "coverage_by_observation_end": 0.12,
+      "engines_with_signal_in_window": 3,
+      "signal_in_window_fraction": 0.12
+    }
+  ],
+  "lead_times": [
+    {
+      "model": "autoencoder",
+      "warned_engines": 7,
+      "no_observed_warning_engines": 93,
+      "min": 31.0,
+      "q25": 36.5,
+      "median": 42.0,
+      "q75": 46.0,
+      "max": 67.0,
+      "first_warning_far_gt50": 1,
+      "first_warning_31_to50": 6,
+      "first_warning_near_le30": 0,
+      "interpretation": "Conditional on observed warnings; censored no-warning engines excluded"
+    },
+    {
+      "model": "pca",
+      "warned_engines": 4,
+      "no_observed_warning_engines": 96,
+      "min": 28.0,
+      "q25": 28.75,
+      "median": 30.0,
+      "q75": 70.75,
+      "max": 190.0,
+      "first_warning_far_gt50": 1,
+      "first_warning_31_to50": 1,
+      "first_warning_near_le30": 2,
+      "interpretation": "Conditional on observed warnings; censored no-warning engines excluded"
+    }
+  ],
+  "premature": [
+    {
+      "model": "autoencoder",
+      "rule": "raw",
+      "region": "RUL>50",
+      "eligible_records": 12210,
+      "warning_records": 542,
+      "record_fraction": 0.04438984438984439,
+      "eligible_engines": 100,
+      "warned_engines": 97,
+      "engine_fraction": 0.97,
+      "interpretation": "Premature-warning proxy, not verified false positives"
+    },
+    {
+      "model": "autoencoder",
+      "rule": "persistent",
+      "region": "RUL>50",
+      "eligible_records": 12210,
+      "warning_records": 4,
+      "record_fraction": 0.0003276003276003276,
+      "eligible_engines": 100,
+      "warned_engines": 1,
+      "engine_fraction": 0.01,
+      "interpretation": "Premature-warning proxy, not verified false positives"
+    },
+    {
+      "model": "autoencoder",
+      "rule": "latched",
+      "region": "RUL>50",
+      "eligible_records": 12210,
+      "warning_records": 17,
+      "record_fraction": 0.0013923013923013922,
+      "eligible_engines": 100,
+      "warned_engines": 1,
+      "engine_fraction": 0.01,
+      "interpretation": "Premature-warning proxy, not verified false positives"
+    },
+    {
+      "model": "pca",
+      "rule": "raw",
+      "region": "RUL>50",
+      "eligible_records": 12210,
+      "warning_records": 453,
+      "record_fraction": 0.0371007371007371,
+      "eligible_engines": 100,
+      "warned_engines": 95,
+      "engine_fraction": 0.95,
+      "interpretation": "Premature-warning proxy, not verified false positives"
+    },
+    {
+      "model": "pca",
+      "rule": "persistent",
+      "region": "RUL>50",
+      "eligible_records": 12210,
+      "warning_records": 1,
+      "record_fraction": 8.19000819000819e-05,
+      "eligible_engines": 100,
+      "warned_engines": 1,
+      "engine_fraction": 0.01,
+      "interpretation": "Premature-warning proxy, not verified false positives"
+    },
+    {
+      "model": "pca",
+      "rule": "latched",
+      "region": "RUL>50",
+      "eligible_records": 12210,
+      "warning_records": 54,
+      "record_fraction": 0.004422604422604423,
+      "eligible_engines": 100,
+      "warned_engines": 1,
+      "engine_fraction": 0.01,
+      "interpretation": "Premature-warning proxy, not verified false positives"
+    }
+  ],
+  "cusum_enabled": true,
+  "cusum_configs": {
+    "autoencoder": {
+      "reference_mean": 0.23348165565530998,
+      "reference_std": 0.12229169426190516,
+      "drift": 0.5,
+      "boundary": 5.0
+    },
+    "pca": {
+      "reference_mean": 0.14583544640128498,
+      "reference_std": 0.09559821233674698,
+      "drift": 0.5,
+      "boundary": 5.0
+    }
+  },
+  "cusum_summary": [
+    {
+      "model": "autoencoder",
+      "engines_with_events": 44,
+      "event_count": 169,
+      "engines_with_far_region_events": 38,
+      "median_first_event_rul": 129.5,
+      "interpretation": "Supporting diagnostic only; fixed CUSUM boundary is not false-alarm calibrated"
+    },
+    {
+      "model": "pca",
+      "engines_with_events": 17,
+      "event_count": 34,
+      "engines_with_far_region_events": 12,
+      "median_first_event_rul": 123.0,
+      "interpretation": "Supporting diagnostic only; fixed CUSUM boundary is not false-alarm calibrated"
+    }
+  ],
+  "cusum_engines_with_events": {
+    "autoencoder": 44,
+    "pca": 17
+  },
+  "figures": [
+    "phase4_warning_coverage.png",
+    "phase4_warning_lead_times.png",
+    "phase4_test_error_vs_rul.png",
+    "phase4_raw_vs_persistent.png",
+    "phase4_warning_tradeoff.png"
+  ],
+  "csv_files": [
+    "phase4_per_engine_warnings.csv",
+    "phase4_coverage_by_window.csv",
+    "phase4_premature_diagnostics.csv",
+    "phase4_lead_time_statistics.csv",
+    "phase4_model_summary.csv",
+    "phase4_test_records.csv",
+    "phase4_complete_training_rul.csv",
+    "phase4_cusum_per_engine.csv",
+    "phase4_cusum_summary.csv"
+  ],
+  "protected_sha256": {
+    "data\\raw\\RUL_FD001.txt": "a19c8ec94931949d0485bdc35118206e9c81c4547b422efb9cf86f4ceddbceca",
+    "data\\raw\\test_FD001.txt": "3cda7109ce17bafb5443f2ac926cfcf88154b941b8c4cf95eb55d1ddd6f52851",
+    "data\\raw\\train_FD001.txt": "963b5e22825b34d8b21c69e1aeb4af3e647050eb672ee8834ba4b5d91d2de0f8",
+    "outputs\\models\\.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "outputs\\models\\autoencoder_best.pt": "4132fdc386865c7afc992c7376bb446ad082f48b2b6c083d820f6409493ff26a",
+    "outputs\\models\\autoencoder_config.json": "5bb6751674e59d4c12a3589a15c20fec3e5f932c3273905d22889ef855fad98a",
+    "outputs\\models\\pca_baseline.joblib": "4c5e091dd34f67eee24e435198fb3377b1b1d6aa128f88fba3810338f1c535ca",
+    "outputs\\models\\pca_config.json": "bf80fec8248ff453e9631755672d38c1f9154f5b6f572426e0cfffa2e103e65a",
+    "outputs\\models\\preprocessing_metadata.json": "48ac52b8e5a1817b60301cd7f44e4812544cd125d99f3f01695ad93c25ac7da8",
+    "outputs\\models\\preprocessor.joblib": "d7d701033588e7795962a660fc815aa9be5640ae3099518eb63c8e9027f7477c",
+    "outputs\\models\\reference_thresholds.json": "275be4b69bf97cbb72283d85c1abbf31d47dbf0655684ac182abb69f434ef694",
+    "outputs\\models\\scaler.joblib": "2ea8d625174f2150db786caf88b24d8226e902642b9b2876233b3981e134bb40"
+  },
+  "limitations": [
+    "No explicit degradation-onset labels; RUL windows are evaluation proxies.",
+    "Lead times are conditional on observed warnings and affected by right censoring.",
+    "Absence of warnings outside an observed evaluation window is not a detection miss.",
+    "Warning availability can include earlier premature signals; report in-window signals separately.",
+    "Record-level summaries weight long trajectories more heavily.",
+    "One subset and one fixed model configuration do not establish general superiority.",
+    "CUSUM is a supporting diagnostic with fixed parameters, not verified onset ground truth."
+  ],
+  "protected_artifacts_unchanged": true
+}

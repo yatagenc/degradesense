@@ -1,0 +1,10 @@
+{
+  "thresholds": {
+    "autoencoder": 0.4706687594636955,
+    "pca": 0.32613088215312686
+  },
+  "quantile": 0.95,
+  "method": "linear",
+  "calibration_records": 400,
+  "interpretation": "Empirical validation-reference threshold, not optimized or independent"
+}

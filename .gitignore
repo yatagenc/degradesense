@@ -47,6 +47,41 @@ Desktop.ini
 !/outputs/metrics/.gitkeep
 !/outputs/models/.gitkeep
 
+# Audited report figures: explicit publication allowlist
+!/outputs/figures/autoencoder_loss_curve.png
+!/outputs/figures/engine_lifetime_distribution.png
+!/outputs/figures/sensor_degradation_trends.png
+!/outputs/figures/sensor_correlation_heatmap.png
+!/outputs/figures/phase4_warning_coverage.png
+!/outputs/figures/phase4_warning_lead_times.png
+!/outputs/figures/phase4_test_error_vs_rul.png
+!/outputs/figures/phase4_raw_vs_persistent.png
+!/outputs/figures/phase4_warning_tradeoff.png
+
+# Small summary, evaluation and provenance artifacts
+!/outputs/metrics/dataset_overview.json
+!/outputs/metrics/development_sensor_selection.csv
+!/outputs/metrics/engine_lifetimes.csv
+!/outputs/metrics/sensor_statistics.csv
+!/outputs/metrics/sensor_correlations.csv
+!/outputs/metrics/autoencoder_loss_history.csv
+!/outputs/metrics/reconstruction_summary.csv
+!/outputs/metrics/threshold_exceedance_summary.csv
+!/outputs/metrics/phase3_summary.json
+!/outputs/metrics/phase4_summary.json
+!/outputs/metrics/phase4_per_engine_warnings.csv
+!/outputs/metrics/phase4_model_summary.csv
+!/outputs/metrics/phase4_lead_time_statistics.csv
+!/outputs/metrics/phase4_coverage_by_window.csv
+!/outputs/metrics/phase4_premature_diagnostics.csv
+!/outputs/metrics/phase4_cusum_per_engine.csv
+!/outputs/metrics/phase4_cusum_summary.csv
+!/outputs/metrics/technical_audit_checks.json
+!/outputs/models/preprocessing_metadata.json
+!/outputs/models/autoencoder_config.json
+!/outputs/models/pca_config.json
+!/outputs/models/reference_thresholds.json
+
 # Model checkpoints and serialized artifacts anywhere in the repository
 *.pt
 *.pth

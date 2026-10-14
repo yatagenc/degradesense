@@ -1,0 +1,13 @@
+split,model,segment,records,threshold,exceedances,exceedance_fraction,interpretation
+development,autoencoder,early_reference,1600,0.4706687594636955,56,0.035,descriptive exceedances; not verified degradation events
+development,autoencoder,later_cycles,15179,0.4706687594636955,1952,0.12859872191843996,descriptive exceedances; not verified degradation events
+development,pca,early_reference,1600,0.32613088215312686,48,0.03,descriptive exceedances; not verified degradation events
+development,pca,later_cycles,15179,0.32613088215312686,1036,0.06825219052638513,descriptive exceedances; not verified degradation events
+validation,autoencoder,early_reference,400,0.4706687594636955,20,0.05,in-sample calibration diagnostic
+validation,autoencoder,later_cycles,3452,0.4706687594636955,580,0.16801853997682503,descriptive exceedances; not verified degradation events
+validation,pca,early_reference,400,0.32613088215312686,20,0.05,in-sample calibration diagnostic
+validation,pca,later_cycles,3452,0.32613088215312686,317,0.09183082271147161,descriptive exceedances; not verified degradation events
+test,autoencoder,early_reference,2000,0.4706687594636955,69,0.0345,descriptive exceedances; not verified degradation events
+test,autoencoder,later_cycles,11096,0.4706687594636955,665,0.059931506849315065,descriptive exceedances; not verified degradation events
+test,pca,early_reference,2000,0.32613088215312686,62,0.031,descriptive exceedances; not verified degradation events
+test,pca,later_cycles,11096,0.32613088215312686,467,0.042087238644556595,descriptive exceedances; not verified degradation events

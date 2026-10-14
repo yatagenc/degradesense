@@ -1,0 +1,7 @@
+model,rule,region,eligible_records,warning_records,record_fraction,eligible_engines,warned_engines,engine_fraction,interpretation
+autoencoder,raw,RUL>50,12210,542,0.04438984438984439,100,97,0.97,"Premature-warning proxy, not verified false positives"
+autoencoder,persistent,RUL>50,12210,4,0.0003276003276003276,100,1,0.01,"Premature-warning proxy, not verified false positives"
+autoencoder,latched,RUL>50,12210,17,0.0013923013923013922,100,1,0.01,"Premature-warning proxy, not verified false positives"
+pca,raw,RUL>50,12210,453,0.0371007371007371,100,95,0.95,"Premature-warning proxy, not verified false positives"
+pca,persistent,RUL>50,12210,1,8.19000819000819e-05,100,1,0.01,"Premature-warning proxy, not verified false positives"
+pca,latched,RUL>50,12210,54,0.004422604422604423,100,1,0.01,"Premature-warning proxy, not verified false positives"

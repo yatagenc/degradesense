@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "device": "cuda",
+  "record_rows_checked": 26192,
+  "engine_rows_checked": 200,
+  "selected_features": 14,
+  "split_engine_counts": [
+    80,
+    20
+  ],
+  "scaler_reference_rows": 1600,
+  "eligible_engines_50": 33,
+  "eligible_engines_30": 25,
+  "warning_engine_counts": [
+    7,
+    4
+  ],
+  "protected_hashes_match": true,
+  "saved_model_scores_reproduced": true,
+  "independent_aggregate_checks_passed": true,
+  "readme_reported_results_match": true
+}
